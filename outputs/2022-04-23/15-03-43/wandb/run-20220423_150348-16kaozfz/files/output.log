@@ -1,0 +1,69 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name      | Type             | Params
+-----------------------------------------------
+0 | conv1     | Conv2d           | 456
+1 | pool      | MaxPool2d        | 0
+2 | conv2     | Conv2d           | 2.4 K
+3 | fc1       | Linear           | 30.8 K
+4 | fc2       | Linear           | 10.2 K
+5 | fc3       | Linear           | 850
+6 | criterium | CrossEntropyLoss | 0
+-----------------------------------------------
+44.7 K    Trainable params
+0         Non-trainable params
+44.7 K    Total params
+0.179     Total estimated model params size (MB)
+C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:486: PossibleUserWarning: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test/predict dataloaders.
+  rank_zero_warn(
+C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:240: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 12 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "c:\Users\Tobias\Documents\DTU\mlops_project\mlops_project\src\models\train_model.py", line 77, in train
+    trainer.fit(model,train_dataloader,test_dataloader)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 768, in fit
+    self._call_and_handle_interrupt(
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 721, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 809, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1234, in _run
+    results = self._run_stage()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1321, in _run_stage
+    return self._run_train()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1343, in _run_train
+    self._run_sanity_check()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1411, in _run_sanity_check
+    val_loop.run()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\dataloader\evaluation_loop.py", line 153, in advance
+    dl_outputs = self.epoch_loop.run(self._data_fetcher, dl_max_batches, kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\epoch\evaluation_epoch_loop.py", line 127, in advance
+    output = self._evaluation_step(**kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\epoch\evaluation_epoch_loop.py", line 222, in _evaluation_step
+    output = self.trainer._call_strategy_hook("validation_step", *kwargs.values())
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1763, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\strategies\strategy.py", line 344, in validation_step
+    return self.model.validation_step(*args, **kwargs)
+  File "c:\Users\Tobias\Documents\DTU\mlops_project\mlops_project\src\models\model.py", line 58, in validation_step
+    preds = self(data)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\nn\modules\module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "c:\Users\Tobias\Documents\DTU\mlops_project\mlops_project\src\models\model.py", line 38, in forward
+    x = F.relu(self.fc1(x))
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\nn\modules\module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\nn\modules\linear.py", line 103, in forward
+    return F.linear(input, self.weight, self.bias)
+RuntimeError: mat1 and mat2 shapes cannot be multiplied (32x59536 and 256x120)
+Set the environment variable HYDRA_FULL_ERROR=1 for a complete stack trace.
+Sanity Checking DataLoader 0:   0%|                                                                                                                                                                                                           | 0/2 [00:00<?, ?it/s]x torch.Size([32, 3, 256, 256])
+x torch.Size([32, 6, 126, 126])
+x torch.Size([32, 16, 61, 61])

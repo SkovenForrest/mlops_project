@@ -1,0 +1,16 @@
+experiment:
+  batch_size: 32
+  lr: 0.01
+  n_epochs: 20
+  seed: 123
+  momentum: 0.9
+model:
+  kernel_size_1: 5
+  kernel_size_2: 5
+  kernel_size_3: 5
+  kernel_size_4: 5
+  kernel_size_5: 5
+  linear_in_1: 240
+  linear_out_1: 80
+  linear_out_2: 40
+  linear_out_3: 10

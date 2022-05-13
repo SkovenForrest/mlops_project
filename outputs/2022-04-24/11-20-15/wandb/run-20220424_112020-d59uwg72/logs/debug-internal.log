@@ -1,0 +1,159 @@
+2022-04-24 11:20:20,266 INFO    StreamThr :6000 [internal.py:wandb_internal():90] W&B internal server running at pid: 6000, started at: 2022-04-24 11:20:20.265387
+2022-04-24 11:20:20,268 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: status
+2022-04-24 11:20:20,270 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: status
+2022-04-24 11:20:20,271 DEBUG   SenderThread:6000 [sender.py:send():232] send: header
+2022-04-24 11:20:20,271 INFO    WriterThread:6000 [datastore.py:open_for_write():75] open: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\run-d59uwg72.wandb
+2022-04-24 11:20:20,295 DEBUG   SenderThread:6000 [sender.py:send():232] send: run
+2022-04-24 11:20:20,297 INFO    SenderThread:6000 [sender.py:_maybe_setup_resume():489] checking resume status for None/mlops-final-project/d59uwg72
+2022-04-24 11:20:20,718 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: check_version
+2022-04-24 11:20:20,723 INFO    SenderThread:6000 [dir_watcher.py:__init__():166] watching files in: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files
+2022-04-24 11:20:20,723 INFO    SenderThread:6000 [sender.py:_start_run_threads():811] run started: d59uwg72 with start time 1650792020
+2022-04-24 11:20:20,723 DEBUG   SenderThread:6000 [sender.py:send():232] send: summary
+2022-04-24 11:20:20,723 INFO    SenderThread:6000 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-24 11:20:20,724 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: check_version
+2022-04-24 11:20:20,775 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: run_start
+2022-04-24 11:20:20,784 DEBUG   HandlerThread:6000 [meta.py:__init__():35] meta init
+2022-04-24 11:20:20,788 DEBUG   HandlerThread:6000 [meta.py:__init__():49] meta init done
+2022-04-24 11:20:20,788 DEBUG   HandlerThread:6000 [meta.py:probe():209] probe
+2022-04-24 11:20:20,793 DEBUG   HandlerThread:6000 [meta.py:_setup_git():199] setup git
+2022-04-24 11:20:20,852 DEBUG   HandlerThread:6000 [meta.py:_setup_git():206] setup git done
+2022-04-24 11:20:20,852 DEBUG   HandlerThread:6000 [meta.py:_save_pip():53] save pip
+2022-04-24 11:20:20,852 DEBUG   HandlerThread:6000 [meta.py:_save_pip():67] save pip done
+2022-04-24 11:20:20,853 DEBUG   HandlerThread:6000 [meta.py:_save_conda():74] save conda
+2022-04-24 11:20:21,730 INFO    Thread-16 :6000 [dir_watcher.py:_on_file_created():213] file/dir created: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\wandb-summary.json
+2022-04-24 11:20:21,730 INFO    Thread-16 :6000 [dir_watcher.py:_on_file_created():213] file/dir created: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\conda-environment.yaml
+2022-04-24 11:20:21,731 INFO    Thread-16 :6000 [dir_watcher.py:_on_file_created():213] file/dir created: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\requirements.txt
+2022-04-24 11:20:22,152 DEBUG   HandlerThread:6000 [meta.py:_save_conda():84] save conda done
+2022-04-24 11:20:22,152 DEBUG   HandlerThread:6000 [meta.py:probe():247] probe done
+2022-04-24 11:20:22,330 DEBUG   SenderThread:6000 [sender.py:send():232] send: files
+2022-04-24 11:20:22,331 INFO    SenderThread:6000 [sender.py:_save_file():946] saving file wandb-metadata.json with policy now
+2022-04-24 11:20:22,331 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-24 11:20:22,332 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: stop_status
+2022-04-24 11:20:22,484 DEBUG   SenderThread:6000 [sender.py:send():232] send: telemetry
+2022-04-24 11:20:22,484 DEBUG   SenderThread:6000 [sender.py:send():232] send: metric
+2022-04-24 11:20:22,484 DEBUG   SenderThread:6000 [sender.py:send():232] send: telemetry
+2022-04-24 11:20:22,484 DEBUG   SenderThread:6000 [sender.py:send():232] send: metric
+2022-04-24 11:20:22,485 WARNING SenderThread:6000 [sender.py:send_metric():904] Seen metric with glob (shouldn't happen)
+2022-04-24 11:20:22,691 DEBUG   SenderThread:6000 [sender.py:send():232] send: exit
+2022-04-24 11:20:22,691 INFO    SenderThread:6000 [sender.py:send_exit():368] handling exit code: 1
+2022-04-24 11:20:22,691 INFO    SenderThread:6000 [sender.py:send_exit():370] handling runtime: 1
+2022-04-24 11:20:22,692 INFO    SenderThread:6000 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-24 11:20:22,692 INFO    SenderThread:6000 [sender.py:send_exit():376] send defer
+2022-04-24 11:20:22,692 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: defer
+2022-04-24 11:20:22,692 INFO    HandlerThread:6000 [handler.py:handle_request_defer():164] handle defer: 0
+2022-04-24 11:20:22,692 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: defer
+2022-04-24 11:20:22,692 INFO    SenderThread:6000 [sender.py:send_request_defer():385] handle sender defer: 0
+2022-04-24 11:20:22,692 INFO    SenderThread:6000 [sender.py:transition_state():389] send defer: 1
+2022-04-24 11:20:22,693 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: defer
+2022-04-24 11:20:22,693 INFO    HandlerThread:6000 [handler.py:handle_request_defer():164] handle defer: 1
+2022-04-24 11:20:22,732 INFO    Thread-16 :6000 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\wandb-summary.json
+2022-04-24 11:20:22,733 INFO    Thread-16 :6000 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\conda-environment.yaml
+2022-04-24 11:20:22,733 INFO    Thread-16 :6000 [dir_watcher.py:_on_file_created():213] file/dir created: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\output.log
+2022-04-24 11:20:22,733 INFO    Thread-16 :6000 [dir_watcher.py:_on_file_created():213] file/dir created: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\wandb-metadata.json
+2022-04-24 11:20:22,772 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: defer
+2022-04-24 11:20:22,772 INFO    SenderThread:6000 [sender.py:send_request_defer():385] handle sender defer: 1
+2022-04-24 11:20:22,772 INFO    SenderThread:6000 [sender.py:transition_state():389] send defer: 2
+2022-04-24 11:20:22,773 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:22,773 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:22,774 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: defer
+2022-04-24 11:20:22,774 INFO    HandlerThread:6000 [handler.py:handle_request_defer():164] handle defer: 2
+2022-04-24 11:20:22,774 DEBUG   SenderThread:6000 [sender.py:send():232] send: stats
+2022-04-24 11:20:22,774 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: defer
+2022-04-24 11:20:22,775 INFO    SenderThread:6000 [sender.py:send_request_defer():385] handle sender defer: 2
+2022-04-24 11:20:22,775 INFO    SenderThread:6000 [sender.py:transition_state():389] send defer: 3
+2022-04-24 11:20:22,776 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: defer
+2022-04-24 11:20:22,776 INFO    HandlerThread:6000 [handler.py:handle_request_defer():164] handle defer: 3
+2022-04-24 11:20:22,776 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: defer
+2022-04-24 11:20:22,776 INFO    SenderThread:6000 [sender.py:send_request_defer():385] handle sender defer: 3
+2022-04-24 11:20:22,776 INFO    SenderThread:6000 [sender.py:transition_state():389] send defer: 4
+2022-04-24 11:20:22,777 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: defer
+2022-04-24 11:20:22,777 INFO    HandlerThread:6000 [handler.py:handle_request_defer():164] handle defer: 4
+2022-04-24 11:20:22,777 DEBUG   SenderThread:6000 [sender.py:send():232] send: summary
+2022-04-24 11:20:22,777 INFO    SenderThread:6000 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-24 11:20:22,777 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: defer
+2022-04-24 11:20:22,777 INFO    SenderThread:6000 [sender.py:send_request_defer():385] handle sender defer: 4
+2022-04-24 11:20:22,777 INFO    SenderThread:6000 [sender.py:transition_state():389] send defer: 5
+2022-04-24 11:20:22,778 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: defer
+2022-04-24 11:20:22,778 INFO    HandlerThread:6000 [handler.py:handle_request_defer():164] handle defer: 5
+2022-04-24 11:20:22,778 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: defer
+2022-04-24 11:20:22,778 INFO    SenderThread:6000 [sender.py:send_request_defer():385] handle sender defer: 5
+2022-04-24 11:20:22,888 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:22,901 INFO    Thread-22 :6000 [upload_job.py:push():137] Uploaded file C:\Users\Tobias\AppData\Local\Temp\tmpilri28dmwandb\k6a1rb1h-wandb-metadata.json
+2022-04-24 11:20:22,985 INFO    SenderThread:6000 [sender.py:transition_state():389] send defer: 6
+2022-04-24 11:20:22,985 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:22,986 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: defer
+2022-04-24 11:20:22,986 INFO    HandlerThread:6000 [handler.py:handle_request_defer():164] handle defer: 6
+2022-04-24 11:20:22,986 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: defer
+2022-04-24 11:20:22,986 INFO    SenderThread:6000 [sender.py:send_request_defer():385] handle sender defer: 6
+2022-04-24 11:20:22,986 INFO    SenderThread:6000 [dir_watcher.py:finish():279] shutting down directory watcher
+2022-04-24 11:20:23,089 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:23,741 INFO    SenderThread:6000 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\config.yaml
+2022-04-24 11:20:23,742 INFO    SenderThread:6000 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\wandb-summary.json
+2022-04-24 11:20:23,742 INFO    SenderThread:6000 [dir_watcher.py:finish():309] scan: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files
+2022-04-24 11:20:23,742 INFO    SenderThread:6000 [dir_watcher.py:finish():323] scan save: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\conda-environment.yaml conda-environment.yaml
+2022-04-24 11:20:23,742 INFO    SenderThread:6000 [dir_watcher.py:finish():323] scan save: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\config.yaml config.yaml
+2022-04-24 11:20:23,743 INFO    SenderThread:6000 [dir_watcher.py:finish():323] scan save: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\output.log output.log
+2022-04-24 11:20:23,746 INFO    SenderThread:6000 [dir_watcher.py:finish():323] scan save: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\requirements.txt requirements.txt
+2022-04-24 11:20:23,747 INFO    SenderThread:6000 [dir_watcher.py:finish():323] scan save: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\wandb-metadata.json wandb-metadata.json
+2022-04-24 11:20:23,747 INFO    SenderThread:6000 [dir_watcher.py:finish():323] scan save: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\wandb-summary.json wandb-summary.json
+2022-04-24 11:20:23,749 INFO    SenderThread:6000 [sender.py:transition_state():389] send defer: 7
+2022-04-24 11:20:23,750 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:23,751 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: defer
+2022-04-24 11:20:23,752 INFO    HandlerThread:6000 [handler.py:handle_request_defer():164] handle defer: 7
+2022-04-24 11:20:23,753 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: defer
+2022-04-24 11:20:23,753 INFO    SenderThread:6000 [sender.py:send_request_defer():385] handle sender defer: 7
+2022-04-24 11:20:23,753 INFO    SenderThread:6000 [file_pusher.py:finish():145] shutting down file pusher
+2022-04-24 11:20:23,866 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:23,866 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:23,972 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:23,972 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:24,082 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:24,082 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:24,191 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:24,191 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:24,295 INFO    Thread-24 :6000 [upload_job.py:push():137] Uploaded file C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\config.yaml
+2022-04-24 11:20:24,300 INFO    Thread-26 :6000 [upload_job.py:push():137] Uploaded file C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\wandb-summary.json
+2022-04-24 11:20:24,301 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:24,301 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:24,329 INFO    Thread-25 :6000 [upload_job.py:push():137] Uploaded file C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\requirements.txt
+2022-04-24 11:20:24,411 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:24,411 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:24,430 INFO    Thread-23 :6000 [upload_job.py:push():137] Uploaded file C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\files\conda-environment.yaml
+2022-04-24 11:20:24,523 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:24,523 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:24,630 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:24,630 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:24,646 INFO    Thread-15 :6000 [sender.py:transition_state():389] send defer: 8
+2022-04-24 11:20:24,646 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: defer
+2022-04-24 11:20:24,646 INFO    HandlerThread:6000 [handler.py:handle_request_defer():164] handle defer: 8
+2022-04-24 11:20:24,646 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: defer
+2022-04-24 11:20:24,646 INFO    SenderThread:6000 [sender.py:send_request_defer():385] handle sender defer: 8
+2022-04-24 11:20:24,740 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:25,068 INFO    SenderThread:6000 [sender.py:transition_state():389] send defer: 9
+2022-04-24 11:20:25,069 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:25,069 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: defer
+2022-04-24 11:20:25,069 INFO    HandlerThread:6000 [handler.py:handle_request_defer():164] handle defer: 9
+2022-04-24 11:20:25,069 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: defer
+2022-04-24 11:20:25,070 INFO    SenderThread:6000 [sender.py:send_request_defer():385] handle sender defer: 9
+2022-04-24 11:20:25,070 INFO    SenderThread:6000 [sender.py:transition_state():389] send defer: 10
+2022-04-24 11:20:25,070 DEBUG   SenderThread:6000 [sender.py:send():232] send: final
+2022-04-24 11:20:25,070 DEBUG   SenderThread:6000 [sender.py:send():232] send: footer
+2022-04-24 11:20:25,070 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: defer
+2022-04-24 11:20:25,071 INFO    HandlerThread:6000 [handler.py:handle_request_defer():164] handle defer: 10
+2022-04-24 11:20:25,071 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: defer
+2022-04-24 11:20:25,071 INFO    SenderThread:6000 [sender.py:send_request_defer():385] handle sender defer: 10
+2022-04-24 11:20:25,173 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: poll_exit
+2022-04-24 11:20:25,173 DEBUG   SenderThread:6000 [sender.py:send_request():246] send_request: poll_exit
+2022-04-24 11:20:25,173 INFO    SenderThread:6000 [file_pusher.py:join():150] waiting for file pusher
+2022-04-24 11:20:25,634 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: sampled_history
+2022-04-24 11:20:25,634 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: get_summary
+2022-04-24 11:20:25,634 INFO    MainThread:6000 [wandb_run.py:_footer_history_summary_info():3102] rendering history
+2022-04-24 11:20:25,634 INFO    MainThread:6000 [wandb_run.py:_footer_history_summary_info():3134] rendering summary
+2022-04-24 11:20:25,635 INFO    MainThread:6000 [wandb_run.py:_footer_sync_info():3057] logging synced files
+2022-04-24 11:20:25,636 DEBUG   HandlerThread:6000 [handler.py:handle_request():141] handle_request: shutdown
+2022-04-24 11:20:25,636 INFO    HandlerThread:6000 [handler.py:finish():806] shutting down handler
+2022-04-24 11:20:26,085 INFO    WriterThread:6000 [datastore.py:close():279] close: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-24\11-20-15\wandb\run-20220424_112020-d59uwg72\run-d59uwg72.wandb
+2022-04-24 11:20:26,538 INFO    SenderThread:6000 [sender.py:finish():1106] shutting down sender
+2022-04-24 11:20:26,538 INFO    SenderThread:6000 [file_pusher.py:finish():145] shutting down file pusher
+2022-04-24 11:20:26,538 INFO    SenderThread:6000 [file_pusher.py:join():150] waiting for file pusher
+2022-04-24 11:20:26,650 INFO    MainThread:6000 [internal.py:handle_exit():80] Internal process exited

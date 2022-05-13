@@ -1,0 +1,7 @@
+# @package _group_
+kernel_size_1: 5
+kernel_size_2: 5
+linear_in_1: 256
+linear_out_1: 120
+linear_out_2: 84
+linear_out_3: 10

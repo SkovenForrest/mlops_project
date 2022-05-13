@@ -1,0 +1,3 @@
+# @package _group_
+kernel_size: 3
+linear_out_1: 40

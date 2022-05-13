@@ -1,0 +1,95 @@
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name      | Type             | Params
+-----------------------------------------------
+0 | conv1     | Conv2d           | 456
+1 | pool      | MaxPool2d        | 0
+2 | conv2     | Conv2d           | 2.4 K
+3 | conv3     | Conv2d           | 4.0 K
+4 | conv4     | Conv2d           | 1.0 K
+5 | fc1       | Linear           | 69.2 K
+6 | fc2       | Linear           | 10.2 K
+7 | fc3       | Linear           | 850
+8 | criterium | CrossEntropyLoss | 0
+-----------------------------------------------
+88.1 K    Trainable params
+0         Non-trainable params
+88.1 K    Total params
+0.353     Total estimated model params size (MB)
+C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:486: PossibleUserWarning: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test/predict dataloaders.
+  rank_zero_warn(
+C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:240: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 12 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:240: PossibleUserWarning: The dataloader, train_dataloader, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 12 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py:1927: PossibleUserWarning: The number of training batches (24) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+  rank_zero_warn(
+
+
+Epoch 0:  67%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████                                                          | 37/55 [00:07<00:03,  5.18it/s, loss=0, v_num=x0cx]
+Validation DataLoader 0:  42%|███████████████████████████████████████████████████████████████████████████▉                                                                                                         | 13/31 [00:01<00:01,  9.35it/s]
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "c:\Users\Tobias\Documents\DTU\mlops_project\mlops_project\src\models\train_model.py", line 77, in train
+    trainer.fit(model,train_dataloader,test_dataloader)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 768, in fit
+    self._call_and_handle_interrupt(
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 721, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 809, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1234, in _run
+    results = self._run_stage()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1321, in _run_stage
+    return self._run_train()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1351, in _run_train
+    self.fit_loop.run()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\fit_loop.py", line 269, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\base.py", line 205, in run
+    self.on_advance_end()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\epoch\training_epoch_loop.py", line 255, in on_advance_end
+    self._run_validation()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\epoch\training_epoch_loop.py", line 309, in _run_validation
+    self.val_loop.run()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\dataloader\evaluation_loop.py", line 153, in advance
+    dl_outputs = self.epoch_loop.run(self._data_fetcher, dl_max_batches, kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\epoch\evaluation_epoch_loop.py", line 111, in advance
+    batch = next(data_fetcher)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\utilities\fetching.py", line 184, in __next__
+    return self.fetching_function()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\utilities\fetching.py", line 259, in fetching_function
+    self._fetch_next_batch(self.dataloader_iter)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\utilities\fetching.py", line 273, in _fetch_next_batch
+    batch = next(iterator)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\utils\data\dataloader.py", line 530, in __next__
+    data = self._next_data()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\utils\data\dataloader.py", line 570, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\utils\data\_utils\fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\utils\data\_utils\fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "c:\Users\Tobias\Documents\DTU\mlops_project\mlops_project\src\models\train_model.py", line 30, in __getitem__
+    image = transform_images(image)
+  File "c:\Users\Tobias\Documents\DTU\mlops_project\mlops_project\src\models\train_model.py", line 37, in transform_images
+    return transform(data)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torchvision\transforms\transforms.py", line 95, in __call__
+    img = t(img)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\nn\modules\module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torchvision\transforms\transforms.py", line 349, in forward
+    return F.resize(img, self.size, self.interpolation, self.max_size, self.antialias)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torchvision\transforms\functional.py", line 436, in resize
+    return F_pil.resize(img, size=size, interpolation=pil_interpolation, max_size=max_size)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torchvision\transforms\functional_pil.py", line 233, in resize
+    raise TypeError(f"img should be PIL Image. Got {type(img)}")
+TypeError: img should be PIL Image. Got <class 'numpy.ndarray'>

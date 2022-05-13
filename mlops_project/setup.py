@@ -4,7 +4,7 @@ setup(
     name='src',
     packages=find_packages(),
     version='0.1.0',
-    description='Final project for the MLOPS course on DTU',
+    description='final project in the DTU MLOPS course',
     author='Tobias Skov',
     license='',
 )

@@ -1,7 +1,7 @@
 mlops_final_project
 ==============================
 
-Final project for the MLOPS course on DTU
+final project in the DTU MLOPS course
 
 Project Organization
 ------------

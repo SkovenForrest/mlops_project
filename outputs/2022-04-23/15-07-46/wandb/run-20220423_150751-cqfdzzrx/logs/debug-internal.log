@@ -1,0 +1,208 @@
+2022-04-23 15:07:51,705 INFO    StreamThr :25856 [internal.py:wandb_internal():90] W&B internal server running at pid: 25856, started at: 2022-04-23 15:07:51.705699
+2022-04-23 15:07:51,707 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: status
+2022-04-23 15:07:51,709 DEBUG   SenderThread:25856 [sender.py:send_request():246] send_request: status
+2022-04-23 15:07:51,710 DEBUG   SenderThread:25856 [sender.py:send():232] send: header
+2022-04-23 15:07:51,711 INFO    WriterThread:25856 [datastore.py:open_for_write():75] open: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\run-cqfdzzrx.wandb
+2022-04-23 15:07:51,735 DEBUG   SenderThread:25856 [sender.py:send():232] send: run
+2022-04-23 15:07:51,737 INFO    SenderThread:25856 [sender.py:_maybe_setup_resume():489] checking resume status for None/mlops-final-project/cqfdzzrx
+2022-04-23 15:07:52,092 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: check_version
+2022-04-23 15:07:52,097 INFO    SenderThread:25856 [dir_watcher.py:__init__():166] watching files in: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files
+2022-04-23 15:07:52,097 INFO    SenderThread:25856 [sender.py:_start_run_threads():811] run started: cqfdzzrx with start time 1650719271
+2022-04-23 15:07:52,097 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:52,097 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:52,097 DEBUG   SenderThread:25856 [sender.py:send_request():246] send_request: check_version
+2022-04-23 15:07:52,157 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: run_start
+2022-04-23 15:07:52,166 DEBUG   HandlerThread:25856 [meta.py:__init__():35] meta init
+2022-04-23 15:07:52,171 DEBUG   HandlerThread:25856 [meta.py:__init__():49] meta init done
+2022-04-23 15:07:52,171 DEBUG   HandlerThread:25856 [meta.py:probe():209] probe
+2022-04-23 15:07:52,177 DEBUG   HandlerThread:25856 [meta.py:_setup_git():199] setup git
+2022-04-23 15:07:52,234 DEBUG   HandlerThread:25856 [meta.py:_setup_git():206] setup git done
+2022-04-23 15:07:52,234 DEBUG   HandlerThread:25856 [meta.py:_save_pip():53] save pip
+2022-04-23 15:07:52,235 DEBUG   HandlerThread:25856 [meta.py:_save_pip():67] save pip done
+2022-04-23 15:07:52,235 DEBUG   HandlerThread:25856 [meta.py:_save_conda():74] save conda
+2022-04-23 15:07:53,105 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_created():213] file/dir created: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\wandb-summary.json
+2022-04-23 15:07:53,106 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_created():213] file/dir created: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\conda-environment.yaml
+2022-04-23 15:07:53,106 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_created():213] file/dir created: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\requirements.txt
+2022-04-23 15:07:53,652 DEBUG   HandlerThread:25856 [meta.py:_save_conda():84] save conda done
+2022-04-23 15:07:53,652 DEBUG   HandlerThread:25856 [meta.py:probe():247] probe done
+2022-04-23 15:07:53,837 DEBUG   SenderThread:25856 [sender.py:send():232] send: files
+2022-04-23 15:07:53,837 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-metadata.json with policy now
+2022-04-23 15:07:53,837 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: stop_status
+2022-04-23 15:07:53,838 DEBUG   SenderThread:25856 [sender.py:send_request():246] send_request: stop_status
+2022-04-23 15:07:53,985 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:53,994 DEBUG   SenderThread:25856 [sender.py:send():232] send: telemetry
+2022-04-23 15:07:53,994 DEBUG   SenderThread:25856 [sender.py:send():232] send: metric
+2022-04-23 15:07:53,994 DEBUG   SenderThread:25856 [sender.py:send():232] send: telemetry
+2022-04-23 15:07:53,995 DEBUG   SenderThread:25856 [sender.py:send():232] send: metric
+2022-04-23 15:07:53,995 WARNING SenderThread:25856 [sender.py:send_metric():904] Seen metric with glob (shouldn't happen)
+2022-04-23 15:07:53,995 DEBUG   SenderThread:25856 [sender.py:send():232] send: metric
+2022-04-23 15:07:53,995 DEBUG   SenderThread:25856 [sender.py:send():232] send: metric
+2022-04-23 15:07:53,995 DEBUG   SenderThread:25856 [sender.py:send():232] send: metric
+2022-04-23 15:07:53,995 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:53,996 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:53,996 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:54,116 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:54,117 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\conda-environment.yaml
+2022-04-23 15:07:54,117 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:54,118 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:54,118 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\wandb-summary.json
+2022-04-23 15:07:54,120 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_created():213] file/dir created: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\output.log
+2022-04-23 15:07:54,121 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_created():213] file/dir created: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\wandb-metadata.json
+2022-04-23 15:07:54,121 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:54,232 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:54,233 DEBUG   SenderThread:25856 [sender.py:send():232] send: metric
+2022-04-23 15:07:54,233 DEBUG   SenderThread:25856 [sender.py:send():232] send: metric
+2022-04-23 15:07:54,233 DEBUG   SenderThread:25856 [sender.py:send():232] send: metric
+2022-04-23 15:07:54,233 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:54,233 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:54,234 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:54,394 INFO    Thread-22 :25856 [upload_job.py:push():137] Uploaded file C:\Users\Tobias\AppData\Local\Temp\tmphpt09v0ewandb\1susdfdy-wandb-metadata.json
+2022-04-23 15:07:54,483 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:54,484 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:54,484 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:54,485 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:54,720 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:54,720 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:54,721 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:54,721 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:54,953 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:54,954 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:54,954 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:54,955 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:55,127 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\wandb-summary.json
+2022-04-23 15:07:55,190 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:55,191 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:55,191 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:55,192 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:55,436 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:55,436 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:55,437 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:55,438 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:55,687 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:55,688 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:55,688 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:55,689 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:55,926 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:55,927 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:55,927 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:55,928 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:56,141 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\output.log
+2022-04-23 15:07:56,141 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\wandb-summary.json
+2022-04-23 15:07:56,156 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:56,157 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:56,157 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:56,160 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:56,405 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:56,406 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:56,406 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:56,407 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:56,648 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:56,648 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:56,649 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:56,649 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:56,887 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:56,888 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:56,889 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:56,889 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:57,120 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:57,121 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:57,122 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:57,122 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:57,153 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\wandb-summary.json
+2022-04-23 15:07:57,354 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:57,355 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:57,355 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:57,356 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:57,587 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:57,588 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:57,588 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:57,589 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:57,822 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:57,822 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:57,823 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:57,824 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:58,083 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:58,084 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:58,084 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:58,085 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:58,153 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\output.log
+2022-04-23 15:07:58,154 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\wandb-summary.json
+2022-04-23 15:07:58,331 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:58,331 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:58,331 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:58,333 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:58,577 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:58,577 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:58,577 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:58,578 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:58,812 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:58,812 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:58,813 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:58,813 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:59,052 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:59,053 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:59,053 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:59,054 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:59,165 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\wandb-summary.json
+2022-04-23 15:07:59,289 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:59,290 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:59,290 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:59,291 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:59,545 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:59,546 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:59,546 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:59,546 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:07:59,785 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:07:59,786 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:07:59,786 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:07:59,787 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:08:00,046 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:08:00,046 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:08:00,047 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:08:00,047 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:08:00,165 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:08:00,166 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:08:00,166 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:08:00,167 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:08:00,180 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\output.log
+2022-04-23 15:08:00,180 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\wandb-summary.json
+2022-04-23 15:08:00,282 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:08:00,283 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:08:00,283 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:08:00,284 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:08:00,395 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:08:00,396 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:08:00,396 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:08:00,398 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:08:00,516 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:08:00,516 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:08:00,516 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:08:00,517 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:08:00,627 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:08:00,628 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:08:00,628 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:08:00,629 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:08:00,740 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:08:00,741 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:08:00,741 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:08:00,742 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:08:00,859 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:08:00,860 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:08:00,860 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:08:00,861 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:08:00,982 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:08:00,982 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:08:00,983 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:08:00,983 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:08:01,099 DEBUG   HandlerThread:25856 [handler.py:handle_request():141] handle_request: partial_history
+2022-04-23 15:08:01,100 DEBUG   SenderThread:25856 [sender.py:send():232] send: history
+2022-04-23 15:08:01,100 DEBUG   SenderThread:25856 [sender.py:send():232] send: summary
+2022-04-23 15:08:01,101 INFO    SenderThread:25856 [sender.py:_save_file():946] saving file wandb-summary.json with policy end
+2022-04-23 15:08:01,193 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\wandb-summary.json
+2022-04-23 15:08:02,200 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\output.log
+2022-04-23 15:08:04,213 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\output.log
+2022-04-23 15:08:22,803 DEBUG   SenderThread:25856 [sender.py:send():232] send: stats
+2022-04-23 15:08:23,393 INFO    Thread-16 :25856 [dir_watcher.py:_on_file_modified():226] file/dir modified: C:\Users\Tobias\Documents\DTU\mlops_project\outputs\2022-04-23\15-07-46\wandb\run-20220423_150751-cqfdzzrx\files\config.yaml
+2022-04-23 15:08:55,431 DEBUG   SenderThread:25856 [sender.py:send():232] send: stats
+2022-04-23 15:09:28,092 DEBUG   SenderThread:25856 [sender.py:send():232] send: stats
+2022-04-23 15:10:00,776 DEBUG   SenderThread:25856 [sender.py:send():232] send: stats

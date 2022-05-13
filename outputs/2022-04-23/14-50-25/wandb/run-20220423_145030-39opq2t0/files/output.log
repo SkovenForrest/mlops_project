@@ -1,0 +1,69 @@
+
+Sanity Checking: 0it [00:00, ?it/s]
+GPU available: False, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+  | Name      | Type             | Params
+-----------------------------------------------
+0 | conv1     | Conv2d           | 156
+1 | pool      | MaxPool2d        | 0
+2 | conv2     | Conv2d           | 2.4 K
+3 | fc1       | Linear           | 30.8 K
+4 | fc2       | Linear           | 10.2 K
+5 | fc3       | Linear           | 850
+6 | criterium | CrossEntropyLoss | 0
+-----------------------------------------------
+44.4 K    Trainable params
+0         Non-trainable params
+44.4 K    Total params
+0.178     Total estimated model params size (MB)
+C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:486: PossibleUserWarning: Your `val_dataloader`'s sampler has shuffling enabled, it is strongly recommended that you turn shuffling off for val/test/predict dataloaders.
+  rank_zero_warn(
+C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\connectors\data_connector.py:240: PossibleUserWarning: The dataloader, val_dataloader 0, does not have many workers which may be a bottleneck. Consider increasing the value of the `num_workers` argument` (try 12 which is the number of cpus on this machine) in the `DataLoader` init to improve performance.
+  rank_zero_warn(
+Error executing job with overrides: []
+Traceback (most recent call last):
+  File "c:\Users\Tobias\Documents\DTU\mlops_project\mlops_project\src\models\train_model.py", line 78, in train
+    trainer.fit(model,train_dataloader,test_dataloader)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 768, in fit
+    self._call_and_handle_interrupt(
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 721, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 809, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1234, in _run
+    results = self._run_stage()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1321, in _run_stage
+    return self._run_train()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1343, in _run_train
+    self._run_sanity_check()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\trainer\trainer.py", line 1411, in _run_sanity_check
+    val_loop.run()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\dataloader\evaluation_loop.py", line 153, in advance
+    dl_outputs = self.epoch_loop.run(self._data_fetcher, dl_max_batches, kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\loops\epoch\evaluation_epoch_loop.py", line 111, in advance
+    batch = next(data_fetcher)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\utilities\fetching.py", line 184, in __next__
+    return self.fetching_function()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\utilities\fetching.py", line 259, in fetching_function
+    self._fetch_next_batch(self.dataloader_iter)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\pytorch_lightning\utilities\fetching.py", line 273, in _fetch_next_batch
+    batch = next(iterator)
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\utils\data\dataloader.py", line 530, in __next__
+    data = self._next_data()
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\utils\data\dataloader.py", line 570, in _next_data
+    data = self._dataset_fetcher.fetch(index)  # may raise StopIteration
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\utils\data\_utils\fetch.py", line 49, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "C:\Users\Tobias\anaconda3\envs\mlops_project\lib\site-packages\torch\utils\data\_utils\fetch.py", line 49, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+  File "c:\Users\Tobias\Documents\DTU\mlops_project\mlops_project\src\models\train_model.py", line 30, in __getitem__
+    image = transform_images(image)
+  File "c:\Users\Tobias\Documents\DTU\mlops_project\mlops_project\src\models\train_model.py", line 37, in transform_images
+    transform = transforms.Compose([transforms.resize(256,256)])
+AttributeError: module 'torchvision.transforms' has no attribute 'resize'
