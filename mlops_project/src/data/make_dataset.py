@@ -13,6 +13,7 @@ import os
 from sklearn.model_selection import train_test_split
 import random
 from torch.utils.data import DataLoader, Dataset
+import pickle
 
 @click.command()
 @click.argument('input_filepath', type=click.Path(exists=True))
@@ -36,6 +37,51 @@ def main(input_filepath, output_filepath):
     #std tensor([0.2765, 0.2734, 0.2861])
     #mean tensor([0.5320, 0.5095, 0.4346])
 
+    test_img_dir = output_filepath+ "test"
+    train_img_dir = output_filepath+ "train"
+    if(not os.path.isdir(test_img_dir)):
+        os.mkdir(test_img_dir)
+    if(not os.path.isdir(train_img_dir)):    
+        os.mkdir(train_img_dir)
+
+    logger.info('save processed images')
+
+    x_train_final = []
+    x_test_final = []
+
+    for idx in range(len(x_train)):
+        img = cv2.cvtColor(cv2.imread(x_train[idx]), cv2.COLOR_BGR2RGB)
+        img_name = train_img_dir + "/" + os.path.basename(x_train[idx])
+        x_train_final.append(img_name)
+        cv2.imwrite(img_name,img)
+    
+    logger.info('Done with train images')
+
+    for idx in range(len(x_test)):
+        img = cv2.cvtColor(cv2.imread(x_test[idx]), cv2.COLOR_BGR2RGB)
+        img_name = test_img_dir + "/" + os.path.basename(x_test[idx])
+        x_test_final.append(img_name)
+        cv2.imwrite(img_name,img)
+
+    logger.info('Done with test images')
+
+
+    with open(output_filepath+"train_img_list", "wb") as fp:   #Pickling
+        pickle.dump(x_train_final, fp)
+    
+    with open(output_filepath+"train_targets", "wb") as fp:   #Pickling
+        pickle.dump(y_train, fp)
+
+    with open(output_filepath+"test_img_list", "wb") as fp:   #Pickling
+        pickle.dump(x_test_final, fp)
+    
+    with open(output_filepath+"test_targets", "wb") as fp:   #Pickling
+        pickle.dump(y_test, fp)
+
+
+    #with open("test", "rb") as fp:   # Unpickling
+    #    b = pickle.load(fp)
+    """
     logger.info('converting images to tensors and normalizing them')
     for idx in range(len(x_train)):
         x_train[idx] = transform_images(x_train[idx])
@@ -48,8 +94,42 @@ def main(input_filepath, output_filepath):
     torch.save(x_test,output_filepath + "test_images.pt")
     torch.save(y_train,output_filepath + "train_labels.pt")
     torch.save(y_test,output_filepath + "test_labels.pt")
+
+    """
     
     logger.info('Done making the final dataset')
+
+def load_dataset(folder_path):
+    categories = {'cane': 'dog', "cavallo": "horse", "elefante": "elephant", "farfalla": "butterfly", "gallina": "chicken", "gatto": "cat", "mucca": "cow", "pecora": "sheep", "scoiattolo": "squirrel","ragno":"spider"}
+    dataset = []
+    animals = ["dog", "horse","elephant", "butterfly",  "chicken",  "cat", "cow",  "sheep", "squirrel", "spider"]
+
+
+    images_list = []
+    labels_list = []
+    for category,translate in categories.items():
+
+        path = "data/raw/" + category
+        target = animals.index(translate)
+        
+        for img in os.listdir(path):
+            images_list.append(os.path.join(path,img))
+            labels_list.append(target)
+
+    dataset = {
+        'images': images_list,
+        'labels': labels_list,
+    }
+
+    return dataset
+
+def create_train_test_split(dataset):  
+    x = dataset["images"]
+    y = dataset["labels"]
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42, stratify= y)
+    return x_train, x_test, y_train, y_test
+
+"""
 
 def transform_images(data):
     transform = transforms.Compose([transforms.ToPILImage(),transforms.ToTensor(),transforms.Normalize((0.5320, 0.5095, 0.4346), (0.2765, 0.2734, 0.2861))])
@@ -85,7 +165,7 @@ def create_train_test_split(dataset):
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42, stratify= y)
     return x_train, x_test, y_train, y_test
 
-
+"""
 
 
 if __name__ == '__main__':

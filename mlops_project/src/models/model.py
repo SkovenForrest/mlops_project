@@ -15,15 +15,15 @@ class MyAwesomeModel(LightningModule):
     def __init__(self,config):
         super().__init__()
         print(f"configuration: \n {OmegaConf.to_yaml(config)}")
-        hparams = config
+        self.hparams = config
         self.pool = nn.MaxPool2d(2, 2)
-        self.conv1 = nn.Conv2d(3, 32, hparams["kernel_size"])
-        self.conv2 = nn.Conv2d(32, 64,  hparams["kernel_size"])
-        self.conv3 = nn.Conv2d(64, 128,  hparams["kernel_size"])
-        self.conv4 = nn.Conv2d(128, 256,  hparams["kernel_size"])
-        self.conv5 = nn.Conv2d(256, 256,  hparams["kernel_size"])
-        self.fc1 = nn.Linear(1024,  hparams["linear_out_1"])
-        self.fc2 = nn.Linear( hparams["linear_out_1"], 10)
+        self.conv1 = nn.Conv2d(3, 32, self.hparams["kernel_size"])
+        self.conv2 = nn.Conv2d(32, 64,  self.hparams["kernel_size"])
+        self.conv3 = nn.Conv2d(64, 128,  self.hparams["kernel_size"])
+        self.conv4 = nn.Conv2d(128, 256,  self.hparams["kernel_size"])
+        self.conv5 = nn.Conv2d(256, 256,  self.hparams["kernel_size"])
+        self.fc1 = nn.Linear(1024,  self.hparams["linear_out_1"])
+        self.fc2 = nn.Linear( self.hparams["linear_out_1"], 10)
 
         self.criterium = nn.CrossEntropyLoss()
 
@@ -71,7 +71,8 @@ class MyAwesomeModel(LightningModule):
         return loss
 
     def configure_optimizers(self):
-        optimizer = torch.optim.Adam(self.parameters(), lr=1e-2)
+        optimizer = torch.optim.Adam(self.parameters(), lr=self.hparams["lr"])
+
         return optimizer
        
 

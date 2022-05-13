@@ -1,3 +1,4 @@
 # @package _group_
 kernel_size: 3
 linear_out_1: 40
+lr: 1e-3
