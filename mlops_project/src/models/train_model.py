@@ -16,8 +16,6 @@ import os
 log = logging.getLogger(__name__)
 
 
-
-
 class AnimalDataset(Dataset):
     def __init__(self, labels, images_names,dir):
         self.img_labels = labels
@@ -28,13 +26,13 @@ class AnimalDataset(Dataset):
         return len(self.img_labels)
 
     def __getitem__(self, idx):
-        image = Image.open(os.path.join(self.dir,self.image_names[idx]))
+        image = Image.open(os.path.join(self.dir,self.image_names[idx])).convert('RGB')
         image = transform_images(image)
         label = self.img_labels[idx]   
         return image, label
 
 def transform_images(data):
-    transform = transforms.Compose([transforms.Resize((128,128)),transforms.ToTensor(),transforms.Normalize((0.5320, 0.5095, 0.4346), (0.2765, 0.2734, 0.2861))])
+    transform = transforms.Compose([transforms.Resize((64,64)),transforms.ToTensor(),transforms.Normalize((0.5320, 0.5095, 0.4346), (0.2765, 0.2734, 0.2861))])
     return transform(data)
 
 @hydra.main(config_path="config", config_name='default_config.yaml')
@@ -78,7 +76,7 @@ def train(config):
     test_dataloader = DataLoader(test_dataset, batch_size=hparams["batch_size"], shuffle= False, num_workers=6)
     
     # TODO: Implement training loop here
-    model = MyAwesomeModel(model_hparams)
+    model = MyAwesomeModel()
     print(model)
 
     checkpoint_callback = ModelCheckpoint(

@@ -14,6 +14,7 @@ from sklearn.model_selection import train_test_split
 import random
 from torch.utils.data import DataLoader, Dataset
 import pickle
+from PIL import Image
 
 @click.command()
 @click.argument('input_filepath', type=click.Path(exists=True))
@@ -50,18 +51,18 @@ def main(input_filepath, output_filepath):
     x_test_final = []
 
     for idx in range(len(x_train)):
-        img = cv2.cvtColor(cv2.imread(x_train[idx]), cv2.COLOR_BGR2RGB)
+        img = Image.open(x_train[idx])
         img_name = train_img_dir + "/" + os.path.basename(x_train[idx])
         x_train_final.append(img_name)
-        cv2.imwrite(img_name,img)
+        img.save(img_name)
     
     logger.info('Done with train images')
 
     for idx in range(len(x_test)):
-        img = cv2.cvtColor(cv2.imread(x_test[idx]), cv2.COLOR_BGR2RGB)
+        img =Image.open(x_test[idx])
         img_name = test_img_dir + "/" + os.path.basename(x_test[idx])
         x_test_final.append(img_name)
-        cv2.imwrite(img_name,img)
+        img.save(img_name)
 
     logger.info('Done with test images')
 
