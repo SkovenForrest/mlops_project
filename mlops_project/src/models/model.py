@@ -16,18 +16,22 @@ log = logging.getLogger(__name__)
 class MyAwesomeModel(LightningModule):
     def __init__(self):
         super().__init__()
-        self.conv1 = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, stride=1)
-        self.conv2 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, stride=1)
-        self.conv3 = nn.Conv2d(in_channels=64, out_channels=96, kernel_size=3, stride=1)
-        self.conv4 = nn.Conv2d(in_channels=96, out_channels=128, kernel_size=3, stride=1)
+        self.conv1 = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, stride=1,padding=1)
+        self.conv2 = nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, stride=1,padding=1)
+        self.conv3 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, stride=1,padding=1)
+        self.conv4 = nn.Conv2d(in_channels=64, out_channels=64, kernel_size=3, stride=1,padding=1)
+        self.conv5 = nn.Conv2d(in_channels=64, out_channels=128, kernel_size=3, stride=1,padding=1)
+        self.conv6 = nn.Conv2d(in_channels=128, out_channels=128, kernel_size=3, stride=1,padding=1)
+        self.conv7 = nn.Conv2d(in_channels=128, out_channels=256, kernel_size=3, stride=1,padding=1)
+        self.conv8 = nn.Conv2d(in_channels=256, out_channels=256, kernel_size=3, stride=1,padding=1)
 
 
         self.bn1 = nn.BatchNorm2d(32)
         self.bn2 = nn.BatchNorm2d(64)
-        self.bn3 = nn.BatchNorm2d(96)
-        self.bn4 = nn.BatchNorm2d(128)
+        self.bn3 = nn.BatchNorm2d(128)
+        self.bn4 = nn.BatchNorm2d(256)
         self.pool = nn.MaxPool2d(2,2)
-        self.fc1 = nn.Linear(2048, 40)
+        self.fc1 = nn.Linear(16384, 40)
         self.fc2 = nn.Linear(40,10)
 
         self.criterium = nn.CrossEntropyLoss()
@@ -49,12 +53,16 @@ class MyAwesomeModel(LightningModule):
             raise ValueError('Expected each sample to have shape [3, 64, 64]')
 
         x = F.relu(self.bn1(self.conv1(x)))
+        x = F.relu(self.bn1(self.conv2(x)))
         x = self.pool(x)       
-        x = F.relu(self.bn2(self.conv2(x))) 
+        x = F.relu(self.bn2(self.conv3(x))) 
+        x = F.relu(self.bn2(self.conv4(x))) 
         x = self.pool(x)                       
-        x = F.relu(self.bn3(self.conv3(x)))  
+        x = F.relu(self.bn3(self.conv5(x))) 
+        x = F.relu(self.bn3(self.conv6(x)))  
         x = self.pool(x)   
-        x = F.relu(self.bn4(self.conv4(x)))   
+        x = F.relu(self.bn4(self.conv7(x)))  
+        x = F.relu(self.bn4(self.conv8(x))) 
         x = torch.flatten(x, 1)
 
         x = self.fc1(x)
@@ -86,7 +94,7 @@ class MyAwesomeModel(LightningModule):
         return loss
 
     def configure_optimizers(self):
-        optimizer = torch.optim.Adam(self.parameters(), lr=0.001)
+        optimizer = torch.optim.Adam(self.parameters(), lr=1e-4)
 
         return optimizer
 
