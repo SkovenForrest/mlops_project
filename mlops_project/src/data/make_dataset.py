@@ -19,7 +19,8 @@ from PIL import Image
 @click.command()
 @click.argument('input_filepath', type=click.Path(exists=True))
 @click.argument('output_filepath', type=click.Path())
-def main(input_filepath, output_filepath):
+
+def main(input_filepath: str, output_filepath: str):
     """ Runs data processing scripts to turn raw data from (../raw) into
         cleaned data ready to be analyzed (saved in ../processed).
     """
@@ -35,9 +36,8 @@ def main(input_filepath, output_filepath):
 
     logger.info('making the train and test split')
     x_train, x_test, y_train, y_test = create_train_test_split(dataset)
-    #std tensor([0.2765, 0.2734, 0.2861])
-    #mean tensor([0.5320, 0.5095, 0.4346])
 
+    # create directories for the train and test images
     test_img_dir = output_filepath+ "test"
     train_img_dir = output_filepath+ "train"
     if(not os.path.isdir(test_img_dir)):
@@ -80,27 +80,21 @@ def main(input_filepath, output_filepath):
         pickle.dump(y_test, fp)
 
 
-    #with open("test", "rb") as fp:   # Unpickling
-    #    b = pickle.load(fp)
-    """
-    logger.info('converting images to tensors and normalizing them')
-    for idx in range(len(x_train)):
-        x_train[idx] = transform_images(x_train[idx])
-
-    for idx in range(len(x_test)):
-        x_test[idx] = transform_images(x_test[idx])
-
-    logger.info('saving the dataset')
-    torch.save(x_train,output_filepath + "train_images.pt")
-    torch.save(x_test,output_filepath + "test_images.pt")
-    torch.save(y_train,output_filepath + "train_labels.pt")
-    torch.save(y_test,output_filepath + "test_labels.pt")
-
-    """
     
     logger.info('Done making the final dataset')
 
-def load_dataset(folder_path):
+def load_dataset(folder_path: str) -> dict:
+
+    """
+        Returns the dataset as a dict where the class names are also converted to english 
+        
+        parameters:
+            folder_path (str) the path to the raw data
+
+        returns:
+            dataset (dict) a dict containing the path to the images and the labels
+    """
+
     categories = {'cane': 'dog', "cavallo": "horse", "elefante": "elephant", "farfalla": "butterfly", "gallina": "chicken", "gatto": "cat", "mucca": "cow", "pecora": "sheep", "scoiattolo": "squirrel","ragno":"spider"}
     dataset = []
     animals = ["dog", "horse","elephant", "butterfly",  "chicken",  "cat", "cow",  "sheep", "squirrel", "spider"]
@@ -124,49 +118,25 @@ def load_dataset(folder_path):
 
     return dataset
 
-def create_train_test_split(dataset):  
+def create_train_test_split(dataset: dict) -> list:
+    """
+    spilt the data into train and test by stratifying it
+
+    parameters:
+        dataset (dict) containg the path to the images and the corresponding labels
+
+    returns:
+        x_train (list) containing the path to the train images
+        x_test (list) containing the path to the test images
+        y_train (list) containing the train labels
+        y_test (list) containing the test labels
+
+    """
     x = dataset["images"]
     y = dataset["labels"]
     x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42, stratify= y)
     return x_train, x_test, y_train, y_test
 
-"""
-
-def transform_images(data):
-    transform = transforms.Compose([transforms.ToPILImage(),transforms.ToTensor(),transforms.Normalize((0.5320, 0.5095, 0.4346), (0.2765, 0.2734, 0.2861))])
-    return transform(data)
-
-def load_dataset(folder_path):
-    categories = {'cane': 'dog', "cavallo": "horse", "elefante": "elephant", "farfalla": "butterfly", "gallina": "chicken", "gatto": "cat", "mucca": "cow", "pecora": "sheep", "scoiattolo": "squirrel","ragno":"spider"}
-    dataset = []
-    animals = ["dog", "horse","elephant", "butterfly",  "chicken",  "cat", "cow",  "sheep", "squirrel", "spider"]
-
-
-    images = []
-    labels = []
-    for category,translate in categories.items():
-
-        path = "data/raw/" + category
-        target = animals.index(translate)
-        
-        for img in os.listdir(path):
-            img=cv2.cvtColor(cv2.imread(os.path.join(path,img)), cv2.COLOR_BGR2RGB)
-            images.append(img)
-            labels.append(target)
-
-    dataset = {
-        'images': images,
-        'labels': labels,
-    }
-    return dataset
-
-def create_train_test_split(dataset):  
-    x = dataset["images"]
-    y = dataset["labels"]
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42, stratify= y)
-    return x_train, x_test, y_train, y_test
-
-"""
 
 
 if __name__ == '__main__':

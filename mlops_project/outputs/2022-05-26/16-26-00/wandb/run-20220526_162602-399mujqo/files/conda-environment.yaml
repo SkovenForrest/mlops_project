@@ -1,0 +1,4 @@
+name: mlops_project
+channels:
+  - defaults
+prefix: C:\Users\Tobias\anaconda3\envs\mlops_project\envs\mlops_project

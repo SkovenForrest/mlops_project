@@ -10,78 +10,27 @@ from torchvision import datasets, transforms
 from pytorch_lightning import Trainer
 from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
 import pytorch_lightning as pl
+import kornia 
+from torch import nn
+from torchvision.transforms import Resize
+import numpy as np
+from PIL import Image
+
+def transform_test(data):
+    transform = nn.Sequential(
+    kornia.geometry.Resize(64,64),
+    kornia.image_to_tensor(data),
+    kornia.enhance.normalize(data,mean=torch.tensor([0.5320, 0.5095, 0.4346]), std=torch.tensor([0.2765, 0.2734, 0.2861])),
+    )
+    return transform
 
 
 
+image = Image.open("data\\processed\\test\\2.jpeg").convert('RGB')
 
-class AnimalDataset(Dataset):
-    def __init__(self, labels, images):
-        self.img_labels = labels
-        self.img = images
+image = np.array(image)
+print("before",image.shape)
+print("ten",kornia.image_to_tensor(image).shape)
+image = transform_test(image)
+print("after",image.shape)
 
-    def __len__(self):
-        return len(self.img_labels)
-
-    def __getitem__(self, idx):
-        image =self.img[idx]
-        print("img before",image.shape)
-        image = transform_images(image)
-        
-        print("img after",image.shape)
-        label = self.img_labels[idx]   
-        return image, label
-
-
-def transform_images(data):
-    transform = transforms.Compose([transforms.Resize((256,256))])
-    return transform(data)
-
-#parser = argparse.ArgumentParser(description='Training arguments')
-#parser.add_argument('--lr', default=0.1)
-# add any additional argument that you want
-#args = parser.parse_args(sys.argv[2:])
-#print(args)
-dir = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project\\data\\processed\\"
-#train_images = torch.load(dir + "train_images.pt")
-#train_labels = torch.load(dir + "train_labels.pt")
-test_images = torch.load(dir + "test_images.pt")
-test_labels = torch.load(dir + "test_labels.pt")
-
-print(test_labels)
-
-import cv2
-import os
-categories = {'cane': 'dog', "cavallo": "horse", "elefante": "elephant", "farfalla": "butterfly", "gallina": "chicken", "gatto": "cat", "mucca": "cow", "pecora": "sheep", "scoiattolo": "squirrel","ragno":"spider"}
-dataset = []
-animals = ["dog", "horse","elephant", "butterfly",  "chicken",  "cat", "cow",  "sheep", "squirrel", "spider"]
-
-
-images = []
-labels = []
-for category,translate in categories.items():
-
-    path = "data/raw/" + category
-    #path = folder_path + category
-    print("translate",translate)
-    target = animals.index(translate)
-    print("target", target)
-    print(" ")
-    
-    for img in os.listdir(path):
-        img=cv2.cvtColor(cv2.imread(os.path.join(path,img)), cv2.COLOR_BGR2RGB)
-        #dataset.append([img,target])
-        #print(dataset["target"])
-    
-        images.append(img)
-        labels.append(target)
-
-print(labels)
-
-dataset = {
-    'images': images,
-    'label': labels,
-}
-
-    
-#train_dataset = AnimalDataset(train_labels ,train_images)
-#test_dataset  = AnimalDataset(test_labels,test_images)
