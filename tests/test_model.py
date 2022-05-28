@@ -1,6 +1,8 @@
 import pytest
 import torch
+
 from src.models.model import MyAwesomeModel
+
 
 class Test_model:
 

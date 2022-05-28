@@ -1,7 +1,8 @@
-from src.models.model import MyAwesomeModel, AnimalDataset, Pre_process
-import torch
 import numpy as np
 import pytest
+import torch
+
+from src.models.model import AnimalDataset, MyAwesomeModel, Pre_process
 
 model = MyAwesomeModel()
 loader = model.train_dataloader
@@ -12,6 +13,7 @@ train_loader = model.train_dataloader()
 val_loader = model.val_dataloader()
 
 import os.path
+
 
 class Test_data:
 

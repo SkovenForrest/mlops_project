@@ -1,14 +1,12 @@
-import torch
+import logging
 
-
+import hydra
 import torch
 import torch.nn.functional as F
-from torch import nn
-import hydra
+import wandb
 from omegaconf import OmegaConf
 from pytorch_lightning import LightningModule
-import wandb
-import logging
+from torch import nn
 
 log = logging.getLogger(__name__)
 class MyAwesomeModel(LightningModule):

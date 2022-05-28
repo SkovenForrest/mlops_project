@@ -1,17 +1,18 @@
 # -*- coding: utf-8 -*-
-import click
-import logging
-from pathlib import Path
-import torch
-from sklearn.model_selection import train_test_split
-
-import cv2
 import glob
-from torchvision import transforms
+import logging
 import os
 import random
-from torch.utils.data import DataLoader, Dataset
+from pathlib import Path
+
+import click
+import cv2
 import numpy as np
+import torch
+from sklearn.model_selection import train_test_split
+from torch.utils.data import DataLoader, Dataset
+from torchvision import transforms
+
 
 def load_dataset(folder_path):
     categories = {'cane': 'dog', "cavallo": "horse", "elefante": "elephant", "farfalla": "butterfly", "gallina": "chicken", "gatto": "cat", "mucca": "cow", "pecora": "sheep", "scoiattolo": "squirrel","ragno":"spider"}

@@ -1,22 +1,23 @@
 
-from model import  MyAwesomeModel
-
-import torch
-import hydra
-from omegaconf import OmegaConf
 import logging
-from torch.utils.data import DataLoader, Dataset
-from torchvision import datasets, transforms
-from pytorch_lightning import Trainer
-from pytorch_lightning.callbacks import ModelCheckpoint, EarlyStopping
-import pytorch_lightning as pl
-from PIL import Image
-import pickle
 import os
+import pickle
+
+import hydra
+import pytorch_lightning as pl
+import torch
 from kornia import augmentation as K
 from kornia.augmentation import AugmentationSequential
 from kornia.geometry import bbox_to_mask
 from kornia.utils import image_to_tensor, tensor_to_image
+from model import MyAwesomeModel
+from omegaconf import OmegaConf
+from PIL import Image
+from pytorch_lightning import Trainer
+from pytorch_lightning.callbacks import EarlyStopping, ModelCheckpoint
+from torch.utils.data import DataLoader, Dataset
+from torchvision import datasets, transforms
+
 log = logging.getLogger(__name__)
 
 

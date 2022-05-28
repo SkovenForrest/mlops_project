@@ -1,20 +1,22 @@
 # -*- coding: utf-8 -*-
-import click
-import logging
-from pathlib import Path
-from dotenv import find_dotenv, load_dotenv
-import kornia as K
-import cv2
 import glob
-from torchvision import transforms
-import torch
-import numpy as np
+import logging
 import os
-from sklearn.model_selection import train_test_split
-import random
-from torch.utils.data import DataLoader, Dataset
 import pickle
+import random
+from pathlib import Path
+
+import click
+import cv2
+import kornia as K
+import numpy as np
+import torch
+from dotenv import find_dotenv, load_dotenv
 from PIL import Image
+from sklearn.model_selection import train_test_split
+from torch.utils.data import DataLoader, Dataset
+from torchvision import transforms
+
 
 @click.command()
 @click.argument('input_filepath', type=click.Path(exists=True))
