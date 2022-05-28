@@ -1,0 +1,22 @@
+{
+    "os": "Windows-10-10.0.19043-SP0",
+    "python": "3.9.7",
+    "heartbeatAt": "2022-05-28T08:16:43.550288",
+    "startedAt": "2022-05-28T08:16:42.979876",
+    "docker": null,
+    "cpu_count": 12,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "C:\\Users\\Tobias\\Documents\\DTU\\mlops_project\\mlops_project\\src\\models\\train_model.py",
+    "codePath": "mlops_project\\src\\models\\train_model.py",
+    "git": {
+        "remote": "https://github.com/SkovenForrest/mlops_project.git",
+        "commit": "53db2c3773fed260a7c6572802200c4485120f45"
+    },
+    "email": "tobiasskov95@gmail.com",
+    "root": "C:/Users/Tobias/Documents/DTU/mlops_project",
+    "host": "DESKTOP-H9K32D9",
+    "username": "Tobias",
+    "executable": "C:\\Users\\Tobias\\anaconda3\\envs\\mlops_project\\python.exe"
+}

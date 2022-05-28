@@ -10,12 +10,14 @@ from PIL import Image
 import torchmetrics
 import pickle
 import os
+from torchvision import datasets, models, transforms
 from torch.utils.data import DataLoader, Dataset
 
 log = logging.getLogger(__name__)
 class MyAwesomeModel(LightningModule):
     def __init__(self):
         super().__init__()
+        """
         self.conv1 = nn.Conv2d(in_channels=3, out_channels=32, kernel_size=3, stride=1,padding=1)
         self.conv2 = nn.Conv2d(in_channels=32, out_channels=32, kernel_size=3, stride=1,padding=1)
         self.conv3 = nn.Conv2d(in_channels=32, out_channels=64, kernel_size=3, stride=1,padding=1)
@@ -33,6 +35,15 @@ class MyAwesomeModel(LightningModule):
         self.pool = nn.MaxPool2d(2,2)
         self.fc1 = nn.Linear(16384, 40)
         self.fc2 = nn.Linear(40,10)
+        """
+        self.model_resnet = models.resnet18(pretrained=False)
+        num_ftrs = self.model_resnet.fc.in_features
+
+        # Add fully connected layer for classification
+        self.model_resnet.fc = nn.Linear(num_ftrs, 64)
+        self.fc_out = nn.Linear(64,10)
+
+
 
         self.criterium = nn.CrossEntropyLoss()
 
@@ -49,9 +60,10 @@ class MyAwesomeModel(LightningModule):
 
         if x.ndim != 4:
             raise ValueError('Expected input to a 4D tensor')
-        if x.shape[1] != 3 or x.shape[2] != 64 or x.shape[3] != 64:
-            raise ValueError('Expected each sample to have shape [3, 64, 64]')
+        if x.shape[1] != 3 or x.shape[2] != 128 or x.shape[3] != 128:
+            raise ValueError('Expected each sample to have shape [3, 128, 128]')
 
+        """
         x = F.relu(self.bn1(self.conv1(x)))
         x = F.relu(self.bn1(self.conv2(x)))
         x = self.pool(x)       
@@ -67,6 +79,10 @@ class MyAwesomeModel(LightningModule):
 
         x = self.fc1(x)
         x = self.fc2(x)
+        """
+        x = self.model_resnet(x)
+        x = F.relu(x)
+        x = self.fc_out(x)
         return x
 
     def on_after_batch_transfer(self, batch, dataloader_idx):
@@ -99,13 +115,26 @@ class MyAwesomeModel(LightningModule):
         return optimizer
 
     def train_dataloader(self):
-        dir = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project\\data\\processed\\"
-        dir_dataloader = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project"
 
-        with open(dir+"train_img_list", "rb") as fp:   # Unpickling
+        file_dir = os.path.dirname(os.path.abspath(__file__))
+        head_tail = os.path.split(file_dir)
+        head_tail2 = os.path.split(head_tail[0])
+        base_path = head_tail2[0]
+        dir_dataloader = base_path
+        data_folder = os.path.join(dir_dataloader, "data")
+        processed_folder =  os.path.join(data_folder, "processed")
+        dir = processed_folder
+        
+        # print head and tail
+        # of the specified path
+
+        #dir = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project\\data\\processed\\"
+        #dir_dataloader = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project"
+
+        with open(os.path.join(dir, "train_img_list"), "rb") as fp:   # Unpickling
             train_img_list = pickle.load(fp)
 
-        with open(dir+"train_targets", "rb") as fp:   # Unpickling
+        with open(os.path.join(dir, "train_targets"), "rb") as fp:   # Unpickling
             train_targets = pickle.load(fp)
 
         train_dataset = AnimalDataset(train_targets,train_img_list,dir_dataloader,transform=self.preprocess)
@@ -114,13 +143,24 @@ class MyAwesomeModel(LightningModule):
         return train_dataloader
 
     def val_dataloader(self):
-        dir = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project\\data\\processed\\"
-        dir_dataloader = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project"
+        #dir = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project\\data\\processed\\"
+        #dir_dataloader = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project"
 
-        with open(dir+"test_img_list", "rb") as fp:   # Unpickling
+
+
+        file_dir = os.path.dirname(os.path.abspath(__file__))
+        head_tail = os.path.split(file_dir)
+        head_tail2 = os.path.split(head_tail[0])
+        base_path = head_tail2[0]
+        dir_dataloader = base_path
+        data_folder = os.path.join(dir_dataloader, "data")
+        processed_folder =  os.path.join(data_folder, "processed")
+        dir = processed_folder
+
+        with open(os.path.join(dir, "test_img_list"), "rb") as fp:   # Unpickling
             test_img_list = pickle.load(fp)
 
-        with open(dir+"test_targets", "rb") as fp:   # Unpickling
+        with open(os.path.join(dir, "test_targets"), "rb") as fp:   # Unpickling
             test_targets = pickle.load(fp)
 
         test_dataset  = AnimalDataset(test_targets,test_img_list,dir_dataloader, transform= self.preprocess)
@@ -184,7 +224,7 @@ class AnimalDataset(Dataset):
         if self.transforms is not None:
             image = self.transforms(image)
         #image = transform_images(image)
-        label = self.img_labels[idx]   
+        label = self.img_labels[idx]
         return image, label
 
 
