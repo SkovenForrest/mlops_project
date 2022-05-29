@@ -2,6 +2,7 @@ import pytest
 import torch
 
 from src.models.model import MyAwesomeModel
+PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION = python 
 
 
 class Test_model:
