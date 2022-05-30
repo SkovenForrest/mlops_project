@@ -1,0 +1,21 @@
+experiment:
+  lr: 0.001
+  n_epochs: 10
+  seed: 123
+  num_workers: 6
+  apply_horizontal_flip: true
+  p_horizontal_flip: 0.5
+  apply_color_jitter: true
+  p_jitter: 0.5
+  brightness: 0.5
+  contrast: 0.5
+  saturation: 0.5
+  hue: 0.5
+  apply_rotate: true
+  p_rotate: 0.5
+  degrees: 45
+  apply_gaussian_noise: true
+  p_noise: 0.5
+  noise_mean: 0.0
+  noise_std: 1.0
+  random_crop: true

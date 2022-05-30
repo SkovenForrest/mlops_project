@@ -24,7 +24,7 @@ def train(config):
     print(model)
 
     checkpoint_callback = ModelCheckpoint(
-        dirpath="./models", save_top_k=2, monitor="val_loss", mode="min"
+        dirpath="./models", monitor="val_loss", mode="min"
     )
 
     early_stopping_callback = EarlyStopping(
