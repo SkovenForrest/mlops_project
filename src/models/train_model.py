@@ -1,5 +1,4 @@
 import logging
-
 import hydra
 import pytorch_lightning as pl
 import torch
