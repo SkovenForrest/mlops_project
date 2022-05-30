@@ -14,8 +14,8 @@ hue: 0.5
 apply_rotate: True
 p_rotate: 0.5
 degrees: 45
-apply_gaussian_noise: True
+apply_gaussian_noise: False
 p_noise: 0.5
 noise_mean: 0.0
 noise_std: 1.0
-random_crop: True
+random_crop: False

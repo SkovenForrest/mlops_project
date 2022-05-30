@@ -1,7 +1,9 @@
+import os.path
+
 import numpy as np
 import pytest
+
 from src.models.model import MyAwesomeModel
-import os.path
 
 model = MyAwesomeModel()
 loader = model.train_dataloader

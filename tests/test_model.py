@@ -1,8 +1,11 @@
+import hydra
 import pytest
 import torch
+
 from src.models.model import MyAwesomeModel
 
 
+@hydra.main(config_path="config", config_name="default_config.yaml", version_base="1.1")
 class Test_model:
     @pytest.mark.parametrize(
         "input,expected_output",
@@ -11,7 +14,10 @@ class Test_model:
             (torch.rand((32, 3, 128, 128)), torch.Size([32, 10])),
         ],
     )
-    def test_output_shape(self, input, expected_output):
-        model = MyAwesomeModel()
+    def test_output_shape(self, input, expected_output, config):
+        hparams = config.experiment
+        print(hparams)
+        torch.manual_seed(hparams["seed"])
+        model = MyAwesomeModel(configurations=hparams)
         output = model(input)
         assert output.shape == expected_output
