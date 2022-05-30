@@ -3,6 +3,7 @@ import logging
 import os
 import pickle
 from pathlib import Path
+
 import click
 from dotenv import find_dotenv, load_dotenv
 from PIL import Image
@@ -13,7 +14,7 @@ from sklearn.model_selection import train_test_split
 @click.argument("input_filepath", type=click.Path(exists=True))
 @click.argument("output_filepath", type=click.Path())
 def main(input_filepath: str, output_filepath: str):
-    """ 
+    """
     Runs data processing scripts to turn raw data from (../raw) into
         cleaned data ready to be analyzed (saved in ../processed).
     """
@@ -64,7 +65,7 @@ def main(input_filepath: str, output_filepath: str):
 
     with open(output_filepath + "train_targets", "wb") as fp:  # Pickling
         pickle.dump(y_train, fp)
-        
+
     with open(output_filepath + "test_img_list", "wb") as fp:  # Pickling
         pickle.dump(x_test_final, fp)
 
@@ -77,11 +78,9 @@ def main(input_filepath: str, output_filepath: str):
 def load_dataset(folder_path: str) -> dict:
 
     """
-        Returns the dataset as a dict where the class names are also converted to english 
-        
+        Returns the dataset as a dict where the class names are also converted to english
         parameters:
             folder_path (str) the path to the raw data
-
         returns:
             dataset (dict) a dict containing the path to the images and the labels
     """

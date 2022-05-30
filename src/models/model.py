@@ -1,6 +1,7 @@
 import logging
 import os
 import pickle
+
 import kornia as K
 import numpy as np
 import torch
@@ -29,14 +30,16 @@ class MyAwesomeModel(LightningModule):
 
         self.random_crop = configurations["random_crop"]
 
-        self.preprocess = Pre_process(random_crop= self.random_crop)
+        self.configurations = configurations
 
-        self.transform = Data_augmentation(apply_color_jitter=True)
+        torch.manual_seed(self.configurations["seed"])
 
+        self.preprocess = Pre_process(random_crop=self.random_crop)
 
+        self.transform = Data_augmentation(configurations=self.configurations)
 
     def forward(self, x: Tensor):
-        """ Forward pass through the network, 
+        """ Forward pass through the network,
             the function returns the output logits
         """
 
@@ -75,7 +78,7 @@ class MyAwesomeModel(LightningModule):
         return loss
 
     def configure_optimizers(self):
-        optimizer = torch.optim.Adam(self.parameters(), lr=1e-4)
+        optimizer = torch.optim.Adam(self.parameters(), lr=self.configurations["lr"])
 
         return optimizer
 
@@ -90,12 +93,6 @@ class MyAwesomeModel(LightningModule):
         processed_folder = os.path.join(data_folder, "processed")
         dir = processed_folder
 
-        # print head and tail
-        # of the specified path
-
-        # dir = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project\\data\\processed\\"
-        # dir_dataloader = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project"
-
         with open(os.path.join(dir, "train_img_list"), "rb") as fp:  # Unpickling
             train_img_list = pickle.load(fp)
 
@@ -106,14 +103,15 @@ class MyAwesomeModel(LightningModule):
             train_targets, train_img_list, dir_dataloader, transform=self.preprocess
         )
         train_dataloader = DataLoader(
-            train_dataset, batch_size=64, shuffle=True, num_workers=6
+            train_dataset,
+            batch_size=64,
+            shuffle=True,
+            num_workers=self.configurations["num_workers"],
         )
 
         return train_dataloader
 
     def val_dataloader(self):
-        # dir = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project\\data\\processed\\"
-        # dir_dataloader = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project"
 
         file_dir = os.path.dirname(os.path.abspath(__file__))
         head_tail = os.path.split(file_dir)
@@ -134,58 +132,88 @@ class MyAwesomeModel(LightningModule):
             test_targets, test_img_list, dir_dataloader, transform=self.preprocess
         )
         test_dataloader = DataLoader(
-            test_dataset, batch_size=64, shuffle=False, num_workers=6
+            test_dataset,
+            batch_size=64,
+            shuffle=False,
+            num_workers=self.configurations["num_workers"],
         )
 
         return test_dataloader
 
 
 class Data_augmentation(nn.Module):
-    """ 
+    """
     perform data augmentation on torch tensors using Kornia.
+    the augmentations can be controlled from the configuration files
     """
 
-    def __init__(self, apply_color_jitter: bool = False) -> None:
+    def __init__(self, configurations: dict) -> None:
         super().__init__()
-        self._apply_color_jitter = apply_color_jitter
 
-        self.horizontal_flip = K.augmentation.RandomHorizontalFlip(p=0.5)
-        self.jitter = K.augmentation.ColorJitter(0.1, 0.1, 0.1, 0.1)
-        self.affine = K.augmentation.RandomRotation(45, p=0.5)
+        self.configurations = configurations
+        brightness = self.configurations["brightness"]
+        contrast = self.configurations["contrast"]
+        saturation = self.configurations["saturation"]
+        hue = self.configurations["saturation"]
+        mean = self.configurations["noise_mean"]
+        std = self.configurations["noise_std"]
+
+        self.horizontal_flip = K.augmentation.RandomHorizontalFlip(
+            p=self.configurations["p_horizontal_flip"]
+        )
+        self.jitter = K.augmentation.ColorJitter(
+            brightness, contrast, saturation, hue, p=self.configurations["p_jitter"]
+        )
+        self.rotate = K.augmentation.RandomRotation(
+            self.configurations["degrees"], p=self.configurations["p_rotate"]
+        )
+        self.gaussian_noise = K.augmentation.RandomGaussianNoise(
+            mean=mean, std=std, p=self.configurations["p_noise"]
+        )
 
     @torch.no_grad()  # disable gradients for effiency
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        x= self.transform(x)  # BxCxHxW
-
-        if self.horizontal_flip:
+        if self.configurations["apply_horizontal_flip"]:
             x = self.horizontal_flip(x)
 
-        if self._apply_color_jitter:
+        if self.configurations["apply_color_jitter"]:
             x = self.jitter(x)
-        if self._apply_color_jitter:
-            x = self.jitter(x)
+
+        if self.configurations["apply_rotate"]:
+            x = self.rotate(x)
+
+        if self.configurations["apply_gaussian_noise"]:
+            x = self.gaussian_noise(x)
+
         return x
 
 
 class Pre_process(nn.Module):
     """Module to perform pre-process using Kornia on torch tensors."""
-    def __init__(self ,random_crop: bool = False) -> None:
+
+    def __init__(self, random_crop: bool = False) -> None:
         super().__init__()
         self.random_crop = random_crop
- 
+
     @torch.no_grad()  # disable gradients for effiency
     def forward(self, x: Image) -> torch.Tensor:
         x_tmp: np.ndarray = np.array(x)  # HxWxC
         x_tensor: torch.Tensor = K.image_to_tensor(x_tmp, keepdim=True)  # CxHxW
         if self.random_crop:
-             x_resize: torch.Tensor = K.augmentation.Resize((128, 128))(x_tensor.float())
+            x_resize: torch.Tensor = K.augmentation.Resize((128, 128))(x_tensor.float())
         else:
-            x_resize: torch.Tensor = K.augmentation.RandomCrop((128, 128), pad_if_needed=True)(x_tensor.float())
+            x_resize: torch.Tensor = K.augmentation.RandomCrop(
+                (128, 128), pad_if_needed=True
+            )(x_tensor.float())
         x_out: torch.Tensor = torch.squeeze(x_resize)
         return x_out.float() / 255.0
 
 
 class AnimalDataset(Dataset):
+    """
+    Dataset class for loading the animals dataset in pytorch format
+    """
+
     def __init__(self, labels: list, images_names: list, dir: str, transform=None):
         self.img_labels = labels
         self.image_names = images_names

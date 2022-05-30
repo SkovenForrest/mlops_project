@@ -1,4 +1,5 @@
 import logging
+
 import torch
 import torch.nn.functional as F
 from pytorch_lightning import LightningModule
@@ -38,7 +39,7 @@ class MyAwesomeModel(LightningModule):
         self.criterium = nn.CrossEntropyLoss()
 
     def forward(self, x: Tensor):
-        """ Forward pass through the network, 
+        """ Forward pass through the network,
             the function returns the output logits
         """
         if x.ndim != 4:

@@ -1,6 +1,7 @@
 import logging
 import os
 import pickle
+
 import hydra
 import pytorch_lightning as pl
 import torch
@@ -67,8 +68,7 @@ def train(config):
     torch.manual_seed(hparams["seed"])
 
     dir = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project\\data\\processed\\"
-    dir_dataloader = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project"
-
+    dir_dataloader = "C:\\Users\\Tobias\\Documents\\DTU\mlops_project\\mlops_project\\"
     with open(dir + "test_img_list", "rb") as fp:  # Unpickling
         test_img_list = pickle.load(fp)
 
@@ -105,9 +105,6 @@ def train(config):
     early_stopping_callback = EarlyStopping(
         monitor="val_loss", patience=5, verbose=True, mode="min"
     )
-
-    # trainer = Trainer(max_epochs=10, limit_train_batches=0.20, callbacks=[checkpoint_callback, early_stopping_callback],
-    #         logger=pl.loggers.WandbLogger(project="mlops-final-project"), profiler="simple",log_every_n_steps=10)
 
     trainer = Trainer(
         max_epochs=10,
