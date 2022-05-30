@@ -1,12 +1,10 @@
 import logging
 import os
-from argparse import ArgumentParser
-
 from model import MyAwesomeModel, Pre_process
+from argparse import ArgumentParser
 from PIL import Image
 
 log = logging.getLogger(__name__)
-
 
 def predict(args):
     """
@@ -30,12 +28,13 @@ def predict(args):
         "spider",
     ]
 
-    for img in os.listdir(args.data_path):
-        image = Image.open(img).convert("RGB")
-        image = transform(image)
-        preds = model(image)
-        preds = int(preds.argmax())
-        print("prediction ", animals[preds])
+
+    image = Image.open(args.data_path).convert("RGB")
+    image = transform(image)
+    image = image[None, :]
+    preds = model(image)
+    preds = int(preds.argmax())
+    print("prediction: ", animals[preds])
 
     log.info("Finish!!")
 
