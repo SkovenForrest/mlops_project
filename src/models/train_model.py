@@ -1,4 +1,7 @@
 import logging
+import os
+from argparse import ArgumentParser
+
 import hydra
 import pytorch_lightning as pl
 import torch
@@ -10,7 +13,7 @@ log = logging.getLogger(__name__)
 
 
 @hydra.main(config_path="config", config_name="default_config.yaml", version_base="1.1")
-def train(config):
+def train(args, config):
     """
     funtion to train a model on the dataset and save it to results
     """
@@ -35,13 +38,20 @@ def train(config):
         callbacks=[checkpoint_callback, early_stopping_callback],
         logger=pl.loggers.WandbLogger(project="mlops-final-project"),
         log_every_n_steps=50,
+        accelerator=args.accelerator,
+        devices=args.devices,
     )
     trainer.fit(model)
-    trainer.save_checkpoint("example.ckpt")
-    torch.save(model.state_dict(), "models/baseline.pth")
+    trainer.save_checkpoint(os.path.join(args.model_save_path, args.model_name))
 
     log.info("Finish!!")
 
 
 if __name__ == "__main__":
-    train()
+    parser = ArgumentParser()
+    parser.add_argument("--accelerator", default=None)
+    parser.add_argument("--devices", default=None)
+    parser.add_argument("--model_save_path", default=None)
+    parser.add_argument("--model_name", default=None)
+    args = parser.parse_args()
+    train(args=args)

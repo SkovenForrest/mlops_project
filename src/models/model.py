@@ -16,10 +16,10 @@ log = logging.getLogger(__name__)
 
 
 class MyAwesomeModel(LightningModule):
-    def __init__(self, configurations):
+    def __init__(self, configurations=None):
         super().__init__()
 
-        self.model_resnet = models.resnet18(pretrained=False)
+        self.model_resnet = models.resnet18(pretrained=True)
         num_ftrs = self.model_resnet.fc.in_features
 
         # Add fully connected layer for classification
@@ -27,12 +27,13 @@ class MyAwesomeModel(LightningModule):
         self.fc_out = nn.Linear(64, 10)
 
         self.criterium = nn.CrossEntropyLoss()
-
-        self.random_crop = configurations["random_crop"]
+        if configurations is not None:
+            self.random_crop = configurations["random_crop"]
+            torch.manual_seed(self.configurations["seed"])
+        else:
+            self.random_crop = False
 
         self.configurations = configurations
-
-        torch.manual_seed(self.configurations["seed"])
 
         self.preprocess = Pre_process(random_crop=self.random_crop)
 
@@ -149,41 +150,42 @@ class Data_augmentation(nn.Module):
 
     def __init__(self, configurations: dict) -> None:
         super().__init__()
+        if configurations is not None:
+            self.configurations = configurations
+            brightness = self.configurations["brightness"]
+            contrast = self.configurations["contrast"]
+            saturation = self.configurations["saturation"]
+            hue = self.configurations["saturation"]
+            mean = self.configurations["noise_mean"]
+            std = self.configurations["noise_std"]
 
-        self.configurations = configurations
-        brightness = self.configurations["brightness"]
-        contrast = self.configurations["contrast"]
-        saturation = self.configurations["saturation"]
-        hue = self.configurations["saturation"]
-        mean = self.configurations["noise_mean"]
-        std = self.configurations["noise_std"]
-
-        self.horizontal_flip = K.augmentation.RandomHorizontalFlip(
-            p=self.configurations["p_horizontal_flip"]
-        )
-        self.jitter = K.augmentation.ColorJitter(
-            brightness, contrast, saturation, hue, p=self.configurations["p_jitter"]
-        )
-        self.rotate = K.augmentation.RandomRotation(
-            self.configurations["degrees"], p=self.configurations["p_rotate"]
-        )
-        self.gaussian_noise = K.augmentation.RandomGaussianNoise(
-            mean=mean, std=std, p=self.configurations["p_noise"]
-        )
+            self.horizontal_flip = K.augmentation.RandomHorizontalFlip(
+                p=self.configurations["p_horizontal_flip"]
+            )
+            self.jitter = K.augmentation.ColorJitter(
+                brightness, contrast, saturation, hue, p=self.configurations["p_jitter"]
+            )
+            self.rotate = K.augmentation.RandomRotation(
+                self.configurations["degrees"], p=self.configurations["p_rotate"]
+            )
+            self.gaussian_noise = K.augmentation.RandomGaussianNoise(
+                mean=mean, std=std, p=self.configurations["p_noise"]
+            )
 
     @torch.no_grad()  # disable gradients for effiency
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        if self.configurations["apply_horizontal_flip"]:
-            x = self.horizontal_flip(x)
+        if self.configurations is not None:
+            if self.configurations["apply_horizontal_flip"]:
+                x = self.horizontal_flip(x)
 
-        if self.configurations["apply_color_jitter"]:
-            x = self.jitter(x)
+            if self.configurations["apply_color_jitter"]:
+                x = self.jitter(x)
 
-        if self.configurations["apply_rotate"]:
-            x = self.rotate(x)
+            if self.configurations["apply_rotate"]:
+                x = self.rotate(x)
 
-        if self.configurations["apply_gaussian_noise"]:
-            x = self.gaussian_noise(x)
+            if self.configurations["apply_gaussian_noise"]:
+                x = self.gaussian_noise(x)
 
         return x
 
