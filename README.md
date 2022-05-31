@@ -1,7 +1,49 @@
 mlops_final_project
 ==============================
 
-final project in the DTU MLOPS course
+Final project in the DTU MLOPS course
+
+Prepare data
+------------
+Download datset from https://www.kaggle.com/datasets/alessiocorrado99/animals10
+
+Create a folder named data and put the downloaded data into the datafolder
+
+run a root:
+
+usage: python src/data/make_dataset.py --input_filepath --output_filepath
+
+args:
+--input_filepath    The path of tha raw data
+--output_filepath   The path to where the processed data will be saved
+
+Script for creating train/test splits and saving the processed data.
+
+Training
+------------
+Script for training image classifier.
+
+run a root:
+usage: python src/models/train_model.py --accelerator --devices --model_save_path --model_name
+
+args:
+--accelerator       write cpu or gpu
+--devices           the number of devices to use
+--model_save_path   the path were the model will be saved to
+--model_name        save the model as this name
+
+To use different augmentation edit/add config file to src/models/config/ and specify the settings for augmentation.
+
+Prediction
+------------
+predicting using a pre-trained image classifier.
+
+run a root:
+usage: python src/models/predict_model.py --model_path --image_path
+
+--model_path    the path to the model
+--image_path    path to the image to preform predictions on 
+
 
 Project Organization
 ------------
