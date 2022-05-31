@@ -18,11 +18,9 @@ usage: python src/data/make_dataset.py --input_filepath --output_filepath
 args:
 --input_filepath    The path of tha raw data
 --output_filepath   The path to where the processed data will be saved
-
-.
 ```
 Training
-------------
+```bash
 Script for training image classifier.
 
 run a root:
@@ -35,10 +33,10 @@ args:
 --model_name        save the model as this name
 
 To use different augmentation edit/add config file to src/models/config/ and specify the settings for augmentation.
---------
+```
 
 Prediction
-------------
+```bash
 predicting using a pre-trained image classifier.
 
 run a root:
@@ -46,9 +44,7 @@ usage: python src/models/predict_model.py --model_path --image_path
 
 --model_path    the path to the model
 --image_path    path to the image to preform predictions on 
---------
-
-
+```
 Project Organization
 ------------
 
