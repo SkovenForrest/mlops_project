@@ -2,8 +2,6 @@ import logging
 import os
 import pickle
 
-import kornia as K
-import numpy as np
 import torch
 import torch.nn.functional as F
 from PIL import Image
@@ -15,12 +13,10 @@ from torchvision import models, transforms
 
 log = logging.getLogger(__name__)
 
-def transform_img (image):
-    transforms = torch.nn.Sequential(
-    transforms.Resize(128,128),
-    transforms.ToTensor()
-    )
-    return transforms(image)/255.0
+
+def transform_img(image):
+    transforms_img = torch.nn.Sequential(transforms.Resize(128, 128), transforms.ToTensor())
+    return transforms_img(image) / 255.0
 
 
 class MyAwesomeModel(LightningModule):

@@ -1,10 +1,10 @@
 import logging
-import os
 from model import MyAwesomeModel, Pre_process
 from argparse import ArgumentParser
 from PIL import Image
 
 log = logging.getLogger(__name__)
+
 
 def predict(args):
     """
@@ -28,7 +28,6 @@ def predict(args):
         "spider",
     ]
 
-
     image = Image.open(args.image_path).convert("RGB")
     image = transform(image)
     image = image[None, :]
@@ -41,7 +40,14 @@ def predict(args):
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    parser.add_argument("--model_path", default=None, type=str, help='the path to the model')
-    parser.add_argument("--image_path", default=None, type=str, help='path to the image to preform predictions on ')
+    parser.add_argument(
+        "--model_path", default=None, type=str, help="the path to the model"
+    )
+    parser.add_argument(
+        "--image_path",
+        default=None,
+        type=str,
+        help="path to the image to preform predictions on ",
+    )
     args = parser.parse_args()
     predict(args)
