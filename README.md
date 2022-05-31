@@ -18,6 +18,7 @@ args:
 --output_filepath   The path to where the processed data will be saved
 
 Script for creating train/test splits and saving the processed data.
+--------
 
 Training
 ------------
@@ -33,6 +34,7 @@ args:
 --model_name        save the model as this name
 
 To use different augmentation edit/add config file to src/models/config/ and specify the settings for augmentation.
+--------
 
 Prediction
 ------------
@@ -43,6 +45,7 @@ usage: python src/models/predict_model.py --model_path --image_path
 
 --model_path    the path to the model
 --image_path    path to the image to preform predictions on 
+--------
 
 
 Project Organization

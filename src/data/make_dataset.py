@@ -115,7 +115,7 @@ def load_dataset(folder_path: str) -> dict:
     labels_list = []
     for category, translate in categories.items():
 
-        path = "data/raw/" + category
+        path = folder_path + category
         target = animals.index(translate)
 
         for img in os.listdir(path):
