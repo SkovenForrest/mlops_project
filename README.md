@@ -3,11 +3,13 @@ mlops_final_project
 
 Final project in the DTU MLOPS course
 
-Prepare data
-------------
+**Prepare data**
+```bash
 Download datset from https://www.kaggle.com/datasets/alessiocorrado99/animals10
 
 Create a folder named data and put the downloaded data into the datafolder
+
+Script for creating train/test splits and saving the processed data
 
 run a root:
 
@@ -17,9 +19,8 @@ args:
 --input_filepath    The path of tha raw data
 --output_filepath   The path to where the processed data will be saved
 
-Script for creating train/test splits and saving the processed data.
---------
-
+.
+```
 Training
 ------------
 Script for training image classifier.
